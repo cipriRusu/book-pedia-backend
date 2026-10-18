@@ -1,1 +1,0 @@
-const frontpage = '{"header": "Book-Wiki-Pedia"}'
