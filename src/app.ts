@@ -9,7 +9,7 @@ const app = express();
 //TODO: Allowing global CORS requests for now, to simplify testing
 app.use(cors())
 
-const port = 3001;
+const port = process.env.DEFAULT_PORT;
 
 app.get('/frontpage', (_req, res) => {
   res.send(frontpage);
