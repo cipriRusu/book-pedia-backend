@@ -5,8 +5,6 @@ It will be connected to the platform itself and the Admin dashboard, the CMS tha
 
 This project is required by the [Frontend](https://github.com/cipriRusu/book-pedia-frontend) to work properly.
 
-Admin side[AdminDashboard] N/A - Not required only for rendering data. Required for editing/creating.
-
 It requires a valid .env file with the following values
 
 ```env
