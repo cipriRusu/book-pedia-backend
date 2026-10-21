@@ -27,6 +27,8 @@ npm run exec
 
 - [x] Set up the project
 - [x] Add mock data
+- [ ] Add permanent versioning
+- [ ] Add script running gate
 - [ ] Write tests
 - [x] Replace mock data with SQLite
 - [ ] Create GET resources to return data

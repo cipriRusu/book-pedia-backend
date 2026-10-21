@@ -10,6 +10,8 @@ import {
 } from '../mockData/queries';
 
 export const setupScripts = (db: Database) => {
+    //TODO: Add versioning and gatekeep script running. At the very moment every time we start the application the
+    //resources are created.
     const NUMBER_OF_RESOURCES = 10;
 
     db.exec(CREATE_FRONTPAGE_TABLE);
