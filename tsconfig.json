@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "node16",
+    "module": "nodenext",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "target": "es6",
