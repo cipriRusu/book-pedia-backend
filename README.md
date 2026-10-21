@@ -31,5 +31,13 @@ npm run exec
 - [ ] Add script running gate
 - [ ] Write tests
 - [x] Replace mock data with SQLite
-- [ ] Create GET resources to return data
-- [ ] CREATE POST resources to edit/update/delete data 
+- [x] Create GET resources to return data
+- [ ] CREATE POST resources to edit/update/delete data
+- [ ] Authentication/authorization
+
+## Observations/thoughts
+
+Given that the project is a simple portfolio application, it's not planned to go into production so it doesn't get any updates/security
+patches or deep bugfixes. It's a personal take on how I would handle some developement challenges and nothing more, aimed at practicing and experimenting, so it will go through radical changes or some implementations might change radically in the future, depending on the situation
+
+Most of the code has been written either by hand or scaffolded using local models like Qwen2.5 Coder 7B Instruct
