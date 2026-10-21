@@ -28,6 +28,6 @@ npm run exec
 - [x] Set up the project
 - [x] Add mock data
 - [ ] Write tests
-- [ ] Replace mock data with SQLite
+- [x] Replace mock data with SQLite
 - [ ] Create GET resources to return data
 - [ ] CREATE POST resources to edit/update/delete data 
