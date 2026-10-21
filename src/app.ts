@@ -8,6 +8,7 @@ import { setupScripts } from './mockData/setupScripts';
 
 let db = new Database('pedia.db');
 
+//TODO: Handle async/await properly
 setupScripts(db);
 
 const app = express();
