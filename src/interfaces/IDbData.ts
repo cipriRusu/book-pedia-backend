@@ -3,3 +3,9 @@ export interface IFrontpageDbData {
     header: string,
     front_page_body: string
 }
+
+export interface IResourceDbData {
+    title: string;
+    description: string;
+    footer: string;
+}
