@@ -17,6 +17,8 @@
     "@types/better-sqlite3": "^9.6.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^4.17.1",
+    "@types/ini": "^4.1.1",
+    "ini": "^7.0.0",
     "typescript": "^7.0.2"
   },
   "dependencies": {
