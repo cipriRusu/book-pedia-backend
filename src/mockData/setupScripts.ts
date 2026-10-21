@@ -1,3 +1,4 @@
+import fs from 'fs'
 import { Database } from 'better-sqlite3';
 import { writeFile, readFile } from 'node:fs/promises'
 import { stringify, parse } from 'ini';
@@ -13,6 +14,11 @@ import {
 
 export const setupScripts = async (db: Database) => {
     const NUMBER_OF_RESOURCES = 10;
+    
+    //TODO: Refactor versioning and file check
+    if (!fs.existsSync('./config.ini')) {
+        await writeFile('config.ini', '[versioning]\nversion=0.0.0')
+    }
 
     let text = await readFile(`./config.ini`, {
         encoding: 'utf-8'
@@ -20,7 +26,6 @@ export const setupScripts = async (db: Database) => {
 
     const config = parse(text)
 
-    //TODO: Refactor versioning
     if (config.versioning && config.versioning.version === '0.0.0') {
         db.exec(CREATE_FRONTPAGE_TABLE);
         db.exec(CREATE_RESOURCE_TABLE);
