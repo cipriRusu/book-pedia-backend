@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import Database from 'better-sqlite3';
 import { CREATE_FRONTPAGE_TABLE, POPULATE_FRONTPAGE_DATA, POPULATE_FRONTPAGE_QUERY, GET_FRONTPAGE_DATA } from './mockData/queries';
-import { IFrontpageDbData } from './interfaces/iFrontpageDbData';
 import { frontPageMapper } from './mockData/dataMappings';
+import { IFrontpageDbData } from './interfaces/IFrontpageDbData';
 
 let db = new Database('pedia.db');
 
