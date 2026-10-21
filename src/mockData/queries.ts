@@ -3,6 +3,8 @@ import { faker } from '@faker-js/faker';
 
 export const GET_FRONTPAGE_DATA = "SELECT * FROM frontpage";
 
+export const GET_ALL_RESOURCES = "SELECT * FROM resources";
+
 export const CREATE_FRONTPAGE_TABLE = "CREATE TABLE IF NOT EXISTS frontpage( \
   primary_key ID TEXT PRIMARY_KEY, \
   top_header TEXT, \
