@@ -10,6 +10,7 @@ It requires a valid .env file with the following values
 ```env
 DEFAULT_PORT=3001
 FRONTPAGE_ROUTE=frontpage
+ARTICLE_ROUTE=article
 ```
 
 To run locally:
