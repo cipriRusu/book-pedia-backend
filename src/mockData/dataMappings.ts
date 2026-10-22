@@ -1,7 +1,8 @@
 import { IFrontpageDbData } from "../interfaces/IDbData";
 import { IResourceDbData } from "../interfaces/IDbData";
+import { IFrontPageMapping, IResourceMapper } from "../interfaces/IMapper";
 
-export const frontPageMapper = (dbData: IFrontpageDbData, resources: IResourceDbData[]) => {
+export const frontPageMapper = (dbData: IFrontpageDbData, resources: IResourceDbData[]): IFrontPageMapping | null => {
     return {
         "topHeader": dbData.top_header,
         "header": dbData.header,
@@ -9,5 +10,13 @@ export const frontPageMapper = (dbData: IFrontpageDbData, resources: IResourceDb
         "cards": resources.map((resource: IResourceDbData) => {
             return { ...resource, content: resource.description }
         })
+    }
+}
+
+export const resourceMapper = (dbData: IResourceDbData): IResourceMapper | null  => {
+    return {
+        "title": dbData.title,
+        "description": dbData.description,
+        "footer": dbData.footer
     }
 }
