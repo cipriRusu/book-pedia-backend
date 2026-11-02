@@ -19,11 +19,12 @@ app.use(cors())
 const port = process.env.DEFAULT_PORT;
 const FRONTPAGE_ROUTE = process.env.FRONTPAGE_ROUTE;
 const ARTICLE_ROUTE = process.env.ARTICLE_ROUTE;
+const LISTING_ROUTE = process.env.LISTING_ROUTE;
 
 app.get(`/${FRONTPAGE_ROUTE}`, (_req, res) => {
   //TODO: Encapsulate resource handler in functions
   const dbResourcesData = db.prepare(GET_ALL_RESOURCES).all() as IResourceDbData[];
-  const dbFrontpageData = db.prepare(GET_FRONTPAGE_DATA).get() as IFrontpageDbData
+  const dbFrontpageData = db.prepare(GET_FRONTPAGE_DATA).get() as IFrontpageDbData;
   
   res.type('json')
   res.statusCode = 200;
@@ -36,8 +37,17 @@ app.get(`/${ARTICLE_ROUTE}/:id`, (req, res) => {
 
   res.type('json')
   res.statusCode = 200;
-  res.send(resourceMapper(dbResourceData))
+  res.send(resourceMapper(dbResourceData));
 });
+
+app.get(`/${LISTING_ROUTE}`, (req, res) => {
+  //TODO: test parameter for query filtering: ?test=someValue
+  const testParam = req.query.test;
+
+  res.type('json');
+  res.statusCode = 200;
+  res.send('{something}');
+})
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);

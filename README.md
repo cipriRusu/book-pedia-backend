@@ -11,6 +11,7 @@ It requires a valid .env file with the following values
 DEFAULT_PORT=3001
 FRONTPAGE_ROUTE=frontpage
 ARTICLE_ROUTE=article
+LISTING_ROUTE=listing
 ```
 
 To run locally:
@@ -28,7 +29,7 @@ npm run exec
 
 - [x] Set up the project
 - [x] Add mock data
-- [ ] Add permanent versioning
+- [ ] Add permanent versioning/Refactor
 - [ ] Add script running gate
 - [ ] Write tests
 - [x] Replace mock data with SQLite
