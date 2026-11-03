@@ -9,7 +9,10 @@ import {
     POPULATE_FRONTPAGE_QUERY,
     CREATE_RESOURCE_TABLE,
     POPULATE_RESOURCE_QUERY,
-    POPULATE_RESOURCE_DATA
+    POPULATE_RESOURCE_DATA,
+    CREATE_TAGS_TABLE,
+    POPULATE_TAGS_DATA,
+    POPULATE_TAGS_QUERY
 } from '../mockData/queries';
 
 export const setupScripts = async (db: Database) => {
@@ -36,6 +39,17 @@ export const setupScripts = async (db: Database) => {
         }
 
         config.versioning.version = '1.0.0';
+        await writeFile(`./config.ini`, stringify(config), { encoding: 'utf-8' });
+    }
+
+    if(config.versioning && config.versioning.version === '1.0.0') {
+        db.exec(CREATE_TAGS_TABLE);
+
+        for(let i = 0; i < 5; i++) {
+            db.prepare(POPULATE_TAGS_QUERY).run(...POPULATE_TAGS_DATA());
+        }
+
+        config.versioning.version = '2.0.0';
         await writeFile(`./config.ini`, stringify(config), { encoding: 'utf-8' });
     }
 }
