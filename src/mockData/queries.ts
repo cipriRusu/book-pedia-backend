@@ -21,7 +21,19 @@ export const CREATE_RESOURCE_TABLE = "CREATE TABLE IF NOT EXISTS resources( \
   footer TEXT \
 );"
 
+export const CREATE_TAGS_TABLE = "CREATE TABLE IF NOT EXISTS tags( \
+  primary_key ID TEXT PRIMARY_KEY, \
+  title TEXT \
+);"
+
+export const POPULATE_TAGS_DATA = () => [
+  randomUUID(),
+  faker.food.fruit()
+];
+
 export const POPULATE_FRONTPAGE_QUERY = `INSERT INTO frontpage (primary_key, top_header, header, front_page_body) VALUES (?, ?, ?, ?)`;
+
+export const POPULATE_TAGS_QUERY = `INSERT INTO tags (primary_key, title) VALUES (?, ?)`;
 
 export const POPULATE_FRONTPAGE_DATA = () => [
   randomUUID(),
