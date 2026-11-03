@@ -9,3 +9,8 @@ export interface IResourceDbData {
     description: string;
     footer: string;
 }
+
+export interface ITagsData {
+    primary_key: string;
+    title: string;
+}
