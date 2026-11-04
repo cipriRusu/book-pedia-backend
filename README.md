@@ -39,15 +39,15 @@ npm run exec
 
 ## General data description / architecture
 
-V - 1.0.0: Initial version, which assumes no data is present (the application has never been run). It creates a default Sqlite database while creating two data sources:
+V - 0.0.1: Initial version, which assumes no data is present (the application has never been run). It creates a default Sqlite database while creating two data sources:   
 
 A faker populated "frontpage" data source
 A faker populated "resource" data source
 
-V - 2.0.0: This version introduces tags, at the very moment populated with random "Fruits" values, allowing resources to be filtered by them.
+V - 0.0.2: This version introduces tags, at the very moment populated with random "Fruits" values, allowing resources to be filtered by them.  
 
 A faker populated "tags" data source
-A junction table which allows **many to many** relationships between tags and resources. This will further allow the API to filter resource by specific tags (W.I.P)
+A junction table which allows **many to many** relationships between tags and resources. This will further allow the API to filter resource by specific tags (W.I.P)  
 
 ---
 
