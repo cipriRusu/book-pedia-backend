@@ -1,16 +1,18 @@
 export interface IFrontpageDbData {
-    top_header: string,
-    header: string,
-    front_page_body: string
+    primary_key: string;
+    top_header: string;
+    header: string;
+    front_page_body: string;
 }
 
 export interface IResourceDbData {
+    primary_key: string;
     title: string;
     description: string;
     footer: string;
 }
 
-export interface ITagsData {
+export interface ITagData {
     primary_key: string;
     title: string;
 }
