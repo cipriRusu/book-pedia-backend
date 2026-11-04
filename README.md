@@ -41,8 +41,8 @@ npm run exec
 
 V - 0.0.1: Initial version, which assumes no data is present (the application has never been run). It creates a default Sqlite database while creating two data sources:   
 
-A faker populated "frontpage" data source
-A faker populated "resource" data source
+A faker populated "frontpage" data source  
+A faker populated "resource" data source  
 
 V - 0.0.2: This version introduces tags, at the very moment populated with random "Fruits" values, allowing resources to be filtered by them.  
 
