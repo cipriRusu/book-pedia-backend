@@ -49,13 +49,17 @@ export const POPULATE_TAGS_QUERY = `INSERT INTO tags (primary_key, title) VALUES
 
 export const POPULATE_JUNCTION_RESOURCES_TAGS_QUERY = `INSERT INTO junction_resources_tags (primary_key, resource_key, tag_key) VALUES (?, ?, ?)`;
 
-export const INNER_JOIN_RESOURCE_TAGS_QUERY = `SELECT * FROM resources r INNER JOIN junction_resources_tags jrt ON r.primary_key = jrt.resource_key`;
+export const INNER_JOIN_RESOURCE_TAGS_QUERY = `\
+SELECT * FROM resources r \
+INNER JOIN junction_resources_tags jrt ON r.primary_key = jrt.resource_key
+INNER JOIN tags t ON jrt.tag_key = t.primary_key
+`;
 
 export const WHERE_STATEMENT = ` WHERE `;
 
-export const TAG_KEY_FILTER = "jrt.tag_key";
+export const TAG_TITLE = "t.title";
 
-export const SET_PARAMS = (parsedTags: String[]) => ` IN (${parsedTags.map((_tag) => { return '?' })})`;
+export const SET_PARAMS_BY_COUNT = (parsedTags: String[]) => ` IN (${parsedTags.map((_tag) => { return '?' })})`;
 
 export const POPULATE_FRONTPAGE_DATA = () => [
   randomUUID(),
