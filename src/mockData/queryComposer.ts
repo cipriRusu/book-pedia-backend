@@ -1,5 +1,5 @@
 import { IResourceDbData } from "../interfaces/IDbData";
-import { INNER_JOIN_RESOURCE_TAGS_QUERY, SET_PARAMS, TAG_KEY_FILTER, WHERE_STATEMENT } from "./queries";
+import { INNER_JOIN_RESOURCE_TAGS_QUERY, SET_PARAMS_BY_COUNT, TAG_TITLE, WHERE_STATEMENT } from "./queries";
 import { tagParser } from "./utils";
 import { Database } from 'better-sqlite3';
 
@@ -9,13 +9,13 @@ export const queryComposer = (db: Database, tagQuery: String) => {
 
     query = query.concat(INNER_JOIN_RESOURCE_TAGS_QUERY);
 
-    let parsedTags: String[] = tagParser(db, tagQuery);
+    let parsedTags: String[] = tagParser(tagQuery);
 
     if (parsedTags.length > 0) {
         query = query.concat(WHERE_STATEMENT)
-        query = query.concat(TAG_KEY_FILTER)
-        query = query.concat(SET_PARAMS(parsedTags))
+        query = query.concat(TAG_TITLE)
+        query = query.concat(SET_PARAMS_BY_COUNT(parsedTags))
     }
 
-    return db.prepare(query).all(...parsedTags) as IResourceDbData[]
+    return db.prepare(query).all(parsedTags) as IResourceDbData[]
 }
