@@ -5,6 +5,8 @@ import { frontPageMapper, resourceMapper } from './mockData/dataMappings';
 import { IFrontpageDbData, IResourceDbData } from './interfaces/IDbData';
 import { GET_ALL_RESOURCES, GET_FRONTPAGE_DATA, GET_SPECIFIC_RESOURCE } from './mockData/queries';
 import { setupScripts } from './mockData/setupScripts';
+import { } from 'querystring';
+import { queryComposer } from './mockData/queryComposer';
 
 let db = new Database('pedia.db');
 
@@ -22,10 +24,9 @@ const ARTICLE_ROUTE = process.env.ARTICLE_ROUTE;
 const LISTING_ROUTE = process.env.LISTING_ROUTE;
 
 app.get(`/${FRONTPAGE_ROUTE}`, (_req, res) => {
-  //TODO: Encapsulate resource handler in functions
   const dbResourcesData = db.prepare(GET_ALL_RESOURCES).all() as IResourceDbData[];
   const dbFrontpageData = db.prepare(GET_FRONTPAGE_DATA).get() as IFrontpageDbData;
-  
+
   res.type('json')
   res.statusCode = 200;
   res.send(frontPageMapper(dbFrontpageData, dbResourcesData));
@@ -41,12 +42,12 @@ app.get(`/${ARTICLE_ROUTE}/:id`, (req, res) => {
 });
 
 app.get(`/${LISTING_ROUTE}`, (req, res) => {
-  //TODO: test parameter for query filtering: ?test=someValue
-  const testParam = req.query.test;
+  let tagQuery = req.query.tag as String;
+  let filteredData = queryComposer(db, tagQuery)
 
   res.type('json');
   res.statusCode = 200;
-  res.send('{something}');
+  res.send(filteredData);
 })
 
 app.listen(port, () => {
