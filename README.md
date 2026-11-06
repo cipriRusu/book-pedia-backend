@@ -47,7 +47,7 @@ A faker populated "resource" data source
 V - 0.0.2: This version introduces tags, at the very moment populated with random "Fruits" values, allowing resources to be filtered by them.  
 
 A faker populated "tags" data source
-A junction table which allows **many to many** relationships between tags and resources. This will further allow the API to filter resource by specific tags (W.I.P)  
+A junction table which allows **many to many** relationships between tags and resources. This will further allow the API to filter resource by specific tags.
 
 ---
 
