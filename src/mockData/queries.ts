@@ -9,6 +9,8 @@ export const GET_SPECIFIC_RESOURCE = "SELECT * FROM resources WHERE primary_key 
 
 export const GET_RANDOM_TAG = "SELECT * from tags ORDER BY random() LIMIT 1";
 
+export const GET_TAG_ID = "SELECT primary_key FROM TAGS WHERE title = ?";
+
 export const CREATE_FRONTPAGE_TABLE = "CREATE TABLE IF NOT EXISTS frontpage( \
   primary_key ID TEXT PRIMARY KEY, \
   top_header TEXT, \
@@ -46,6 +48,14 @@ export const POPULATE_FRONTPAGE_QUERY = `INSERT INTO frontpage (primary_key, top
 export const POPULATE_TAGS_QUERY = `INSERT INTO tags (primary_key, title) VALUES (?, ?)`;
 
 export const POPULATE_JUNCTION_RESOURCES_TAGS_QUERY = `INSERT INTO junction_resources_tags (primary_key, resource_key, tag_key) VALUES (?, ?, ?)`;
+
+export const INNER_JOIN_RESOURCE_TAGS_QUERY = `SELECT * FROM resources r INNER JOIN junction_resources_tags jrt ON r.primary_key = jrt.resource_key`;
+
+export const WHERE_STATEMENT = ` WHERE `;
+
+export const TAG_KEY_FILTER = "jrt.tag_key";
+
+export const SET_PARAMS = (parsedTags: String[]) => ` IN (${parsedTags.map((_tag) => { return '?' })})`;
 
 export const POPULATE_FRONTPAGE_DATA = () => [
   randomUUID(),
