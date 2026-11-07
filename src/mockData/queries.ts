@@ -50,7 +50,12 @@ export const POPULATE_TAGS_QUERY = `INSERT INTO tags (primary_key, title) VALUES
 export const POPULATE_JUNCTION_RESOURCES_TAGS_QUERY = `INSERT INTO junction_resources_tags (primary_key, resource_key, tag_key) VALUES (?, ?, ?)`;
 
 export const INNER_JOIN_RESOURCE_TAGS_QUERY = `\
-SELECT * FROM resources r \
+SELECT \
+r.primary_key, \
+r.title, \
+r.description, \
+r.footer \
+FROM resources r \
 INNER JOIN junction_resources_tags jrt ON r.primary_key = jrt.resource_key
 INNER JOIN tags t ON jrt.tag_key = t.primary_key
 `;
