@@ -9,7 +9,7 @@ export const queryComposer = (db: Database, tagQuery: String) => {
 
     query = query.concat(INNER_JOIN_RESOURCE_TAGS_QUERY);
 
-    let parsedTags: String[] = tagParser(tagQuery);
+    let parsedTags: String[] = tagParser(tagQuery ?? '');
 
     if (parsedTags.length > 0) {
         query = query.concat(WHERE_STATEMENT)
