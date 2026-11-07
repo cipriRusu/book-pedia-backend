@@ -43,6 +43,9 @@ app.get(`/${ARTICLE_ROUTE}/:id`, (req, res) => {
 
 app.get(`/${LISTING_ROUTE}`, (req, res) => {
   let tagQuery = req.query.tag as String;
+  //TODO: Implement sorting
+  let sortQuery = req.query.sort as String;
+
   let filteredData = queryComposer(db, tagQuery)
 
   res.type('json');
