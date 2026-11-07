@@ -36,6 +36,7 @@ npm run exec
 - [x] Create GET resources to return data
 - [ ] CREATE POST resources to edit/update/delete data
 - [ ] Authentication/authorization
+- [ ] Infrastructure
 
 ## General data description / architecture
 
